@@ -1,5 +1,6 @@
 package com.progsapps.springkeycloakintegration.controller;
 
+import com.progsapps.springkeycloakintegration.model.Product;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,8 +13,8 @@ import java.util.List;
 public class ProductController {
 
     @GetMapping(produces = "application/json")
-    public List<String> getProducts() {
-        return Arrays.asList("A", "B", "C");
+    public List<Product> getProducts() {
+        return Arrays.asList(new Product(1, "First"), new Product(2, "Second"));
     }
 
 

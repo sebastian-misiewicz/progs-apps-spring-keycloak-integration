@@ -10,4 +10,6 @@ public class SpringKeycloakIntegrationApplication {
         SpringApplication.run(SpringKeycloakIntegrationApplication.class, args);
     }
 
+
+
 }
