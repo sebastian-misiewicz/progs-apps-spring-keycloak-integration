@@ -1,15 +1,15 @@
-<h1>Products</h1>
-<table class="table" id='tab'>
-  <thead>
-  <tr>
-    <th scope="col">id</th>
-    <th scope="col">name</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.id }}</td>
-      <td>{{ product.name }}</td>
-    </tr>
-  </tbody>
+<mat-toolbar>
+  <span>Prog's Apps - Spring Keycloak Integration with Angular</span>
+</mat-toolbar>
+<table mat-table [dataSource]="products">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

@@ -13,6 +13,8 @@ export class AppComponent {
 
   products!: Product[];
 
+  displayedColumns: string[] = ['id', 'name'];
+
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
