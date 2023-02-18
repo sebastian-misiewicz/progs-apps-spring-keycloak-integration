@@ -1,0 +1,7 @@
+{
+  "realm" : "ProgsApps",
+  "auth-server-url" : "http://localhost:18080",
+  "ssl-required" : "external",
+  "resource" : "progs-apps-client",
+  "public-client" : true
+}
