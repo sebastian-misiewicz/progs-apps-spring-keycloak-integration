@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  keycloak:
+    build:
+      context: .docker-keycloak/
+      dockerfile: Dockerfile
+    image: quay.io/keycloak/keycloak:18.0.0
+    ports:
+      - 18080:8080
+    command:
+      - start-dev
