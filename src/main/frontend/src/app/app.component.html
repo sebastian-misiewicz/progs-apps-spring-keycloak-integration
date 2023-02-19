@@ -1,6 +1,11 @@
 <mat-toolbar>
   <span>Prog's Apps - Spring Keycloak Integration with Angular</span>
 </mat-toolbar>
+
+<mat-card>
+  <mat-card-content>{{currentUser.username}}</mat-card-content>
+</mat-card>
+
 <table mat-table [dataSource]="products">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>

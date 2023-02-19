@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './product';
+import { User } from './user';
 import { ProductService } from './product.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +15,19 @@ export class AppComponent {
 
   products!: Product[];
 
+  currentUser!: User;
+
   displayedColumns: string[] = ['id', 'name'];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private userService: UserService) { }
 
   ngOnInit() {
     this.productService.getProducts().subscribe(data => {
-      console.log(data);
       this.products = data;
-    })
+    });
+
+    this.userService.getCurrentUser().subscribe(data => {
+      this.currentUser = data;
+    });
   }
 }
