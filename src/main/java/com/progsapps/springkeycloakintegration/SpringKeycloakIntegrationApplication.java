@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class SpringKeycloakIntegrationApplication {
@@ -14,8 +15,8 @@ public class SpringKeycloakIntegrationApplication {
     }
 
     @Bean
-    public ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher() {
-        return new ServletListenerRegistrationBean<HttpSessionEventPublisher>(new HttpSessionEventPublisher());
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 
 }
