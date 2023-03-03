@@ -1,0 +1,6 @@
+<mat-toolbar>
+  <img src="/assets/logo.png" style="margin-right: 5px"/>
+  <span>Spring Keycloak Integration with Angular</span>
+  <span class="spacer"></span>
+  <span *ngIf="currentUser !== undefined">user <strong>{{currentUser.username}}</strong> | roles <strong>{{currentUser.roles.join(', ')}}</strong></span>
+</mat-toolbar>
