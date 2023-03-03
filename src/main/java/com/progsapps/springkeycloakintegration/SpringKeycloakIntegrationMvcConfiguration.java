@@ -10,7 +10,10 @@ public class SpringKeycloakIntegrationMvcConfiguration implements WebMvcConfigur
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**");
+        registry.addMapping("/**")
+                .allowedOriginPatterns("*")
+                .allowCredentials(true)
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD");
     }
 
 }
