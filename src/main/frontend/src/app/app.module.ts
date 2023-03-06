@@ -14,7 +14,7 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {SecurityService} from "./service/security.service";
 import {JWTTokenServiceService} from "./service/jwttoken-service.service";
 
-export function  initializeApp1(securityService: SecurityService, jwtTokenService: JWTTokenServiceService) {
+export function  initializeToken(securityService: SecurityService, jwtTokenService: JWTTokenServiceService) {
   return (): Promise<any> => {
     return new Promise<void>(async (resolve) => {
       const queryString = window.location.search;
@@ -57,7 +57,7 @@ export function  initializeApp1(securityService: SecurityService, jwtTokenServic
   providers: [
     CookieService,
     SecurityService,
-    {provide: APP_INITIALIZER, useFactory: initializeApp1, deps: [SecurityService, JWTTokenServiceService], multi: true},
+    {provide: APP_INITIALIZER, useFactory: initializeToken, deps: [SecurityService, JWTTokenServiceService], multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: AuthenticationHeaderInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]

@@ -11,7 +11,7 @@ export class AuthenticationHeaderInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (request.url == "http://localhost:8080/security/token") {
+    if (request.url == "http://localhost:8081/security/token" || request.url == "http://localhost:8081/security/configuration") {
       return next.handle(request);
     }
 
