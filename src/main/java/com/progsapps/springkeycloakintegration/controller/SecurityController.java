@@ -1,10 +1,12 @@
 package com.progsapps.springkeycloakintegration.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.progsapps.springkeycloakintegration.model.AuthorizationCode;
-import com.progsapps.springkeycloakintegration.model.KeycloakConfiguration;
-import com.progsapps.springkeycloakintegration.model.TokenResponse;
-import com.progsapps.springkeycloakintegration.model.User;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -14,10 +16,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.client.OAuth2AuthorizeRequest;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -29,21 +27,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.progsapps.springkeycloakintegration.model.AuthorizationCode;
+import com.progsapps.springkeycloakintegration.model.KeycloakConfiguration;
+import com.progsapps.springkeycloakintegration.model.TokenResponse;
+import com.progsapps.springkeycloakintegration.model.User;
 
 @RestController
 @RequestMapping("security")
 public class SecurityController {
-
-    public static Logger LOGGER = Logger.getLogger(ProductController.class.getName());
 
     private final KeycloakConfiguration keycloakConfiguration;
 

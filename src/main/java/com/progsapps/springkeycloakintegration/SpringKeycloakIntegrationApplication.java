@@ -11,9 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class SpringKeycloakIntegrationApplication {
 
     public static void main(String[] args) {
-//System.out.println("aaaaaaaaaaa");
-//        KeycloakAwaiter keycloakAwaiter = new KeycloakAwaiter();
-                SpringApplication.run(SpringKeycloakIntegrationApplication.class, args);
+        SpringApplication.run(SpringKeycloakIntegrationApplication.class, args);
     }
 
     @Bean
