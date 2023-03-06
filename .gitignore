@@ -48,3 +48,7 @@ buildNumber.properties
 
 # .docker-spring-boot
 .docker-spring-boot/*.jar
+
+# Draw.io temporary files
+*.bkp
+*.dtmp
