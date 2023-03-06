@@ -7,7 +7,7 @@ import {IUser} from "../interface/iuser";
   providedIn: 'root'
 })
 export class UserService {
-  public baseUrl = "http://localhost:8080/security/current";
+  public baseUrl = "http://localhost:8081/security/current";
 
   constructor(private httpClient: HttpClient) { }
 

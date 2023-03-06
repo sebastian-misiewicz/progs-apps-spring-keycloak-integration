@@ -10,7 +10,7 @@ import {IKeycloakConfiguration} from "../interface/ikeycloakconfiguraiton";
 })
 export class SecurityService {
 
-  public baseUrl = "http://localhost:8080/security/";
+  public baseUrl = "http://localhost:8081/security/";
 
   constructor(private httpClient: HttpClient,
               private jwtTokenService: JWTTokenServiceService) {
@@ -39,7 +39,7 @@ export class SecurityService {
   private async getAuthUrl() {
     const redirectUri = window.location.href.split('?')[0];
     const keycloakConfiguration: IKeycloakConfiguration = (await lastValueFrom(this.httpClient.get<IKeycloakConfiguration>(this.baseUrl + "configuration")));
-    return keycloakConfiguration.issuerUri + '/protocol/openid-connect/auth?client_id=' + keycloakConfiguration.clientId + '&response_type=code&redirect_uri=' + redirectUri;
+    return keycloakConfiguration.issuerUri + '/protocol/openid-connect/auth?client_id=' + keycloakConfiguration.clientId + '&scope=openid&response_type=code&redirect_uri=' + redirectUri;
   }
 
 

@@ -8,7 +8,7 @@ import {IProduct} from "../interface/iproduct";
 })
 export class ProductService {
 
-  public baseUrl = "http://localhost:8080/product";
+  public baseUrl = "http://localhost:8081/product";
 
   constructor(private httpClient: HttpClient) { }
 

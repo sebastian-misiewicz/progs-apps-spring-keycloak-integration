@@ -5,8 +5,24 @@ services:
     build:
       context: .docker-keycloak/
       dockerfile: Dockerfile
-    image: quay.io/keycloak/keycloak:18.0.0
+    networks:
+      - progs-apps-network
     ports:
-      - 18080:8080
+      - 8080:8080
     command:
       - start-dev
+
+  spring-boot:
+    build:
+      context: .docker-spring-boot/
+      dockerfile: Dockerfile
+    networks:
+      - progs-apps-network
+    ports:
+      - 8081:8081
+    depends_on:
+      - "keycloak"
+
+networks:
+  progs-apps-network:
+    driver: bridge

@@ -46,29 +46,5 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-#docker-jboss deployment
-!docker-jboss/deployments/DEPLOY_PACKAGES_HERE.md
-docker-jboss/deployments/*
-
-# folder-target
-folder-target/*
-!folder-target/.keep.md
-
-# folder-source
-folder-source/*
-!folder-source/.keep.md
-
-# folder-error
-folder-error/*
-!folder-error/.keep.md
-
-# docker-sftp
-docker-sftp/source/*
-docker-sftp/source/.keep.md
-docker-sftp/target/*
-docker-sftp/target/.keep.md
-
-# folder-error
-.sample-files/*
-!.sample-files/big-file1.md
-!.sample-files/copy.sh
+# .docker-spring-boot
+.docker-spring-boot/*.jar
